@@ -5,6 +5,26 @@
 import './App.css'
 import TaskCard from "./TaskCard"
 
+function App() {
+  // { title: "Build the website with static content"}
+  return (
+
+    <div className='flex'>
+      <div className='w-1/2 p-5 border border-gray-500 m-4 rounded-lg'>
+        <h1 className='p-3'>Pending</h1>
+        <TaskCard title="Build the website with static content" dueDate="10th April" assigneeName="Rohit S"/>
+        <TaskCard title="Add blog" dueDate="22nd March" assigneeName="Rohit M"/>
+        <button className='flex justify-start'>+ Add Task</button>
+      </div>
+      <div className='w-1/2 p-4 border border-gray-500 m-4 rounded-lg'>
+        <h1 className='p-3'>Done</h1>
+        <TaskCard title="Design the mockup" completedAtDate="10th April" assigneeName="Rohit M"/>
+        <TaskCard title="Get approval from principal" completedAtDate="20th April" assigneeName="Ajay S"/>
+      </div>
+    </div>
+  )
+}
+
 // function App() {
 //   const [count, setCount] = useState(0)
 
@@ -50,26 +70,5 @@ import TaskCard from "./TaskCard"
 //   //   <h1>{message}</h1>
 //   // )
 // }
-
-function App() {
-  // { title: "Build the website with static content"}
-  return (
-
-    <div className='flex'>
-      <div className='w-1/2 p-5 border border-gray-500 m-4 rounded-lg'>
-        <h1 className='p-3'>Pending</h1>
-        <TaskCard title="Build the website with static content" dueDate="10th April" assigneeName="Rohit S"/>
-        <TaskCard title="Add blog" dueDate="22nd March" assigneeName="Rohit M"/>
-        <button className='flex justify-start'>+ Add Task</button>
-      </div>
-      <div className='w-1/2 p-4 border border-gray-500 m-4 rounded-lg'>
-        <h1 className='p-3'>Done</h1>
-        <TaskCard title="Design the mockup" completedAtDate="10th April" assigneeName="Rohit M"/>
-        <TaskCard title="Get approval from principal" completedAtDate="20th April" assigneeName="Ajay S"/>
-      </div>
-    </div>
-  )
-}
-
 
 export default App

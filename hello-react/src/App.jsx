@@ -2,27 +2,45 @@
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-import './App.css'
-import TaskCard from "./TaskCard"
+// import './App.css'
+import TaskCard from "./TaskCard";
 
 function App() {
-  // { title: "Build the website with static content"}
   return (
-
-    <div className='flex'>
-      <div className='w-1/2 p-5 border border-gray-500 m-4 rounded-lg'>
-        <h1 className='p-3'>Pending</h1>
-        <TaskCard title="Build the website with static content" dueDate="10th April" assigneeName="Rohit S"/>
-        <TaskCard title="Add blog" dueDate="22nd March" assigneeName="Rohit M"/>
-        <button className='flex justify-start'>+ Add Task</button>
-      </div>
-      <div className='w-1/2 p-4 border border-gray-500 m-4 rounded-lg'>
-        <h1 className='p-3'>Done</h1>
-        <TaskCard title="Design the mockup" completedAtDate="10th April" assigneeName="Rohit M"/>
-        <TaskCard title="Get approval from principal" completedAtDate="20th April" assigneeName="Ajay S"/>
+    <div className="center">
+      <h1 className="flex p-4 font-bold text-4xl">Smarter Tasks</h1>
+      <p className="flex p-5 font-bold text-sm">Project: Graduation FInal Year Project (Revamp College Website)</p>
+      <div className="md:flex justify-center md:h-full">
+        <div className=" p-5 border border-gray-500 m-4 rounded-lg">
+          <h1 className="p-3 text-center">Pending</h1>
+          <TaskCard
+            title="Build the website with static content"
+            dueDate="10th April"
+            assigneeName="Rohit S"
+          />
+          <TaskCard
+            title="Add blog"
+            dueDate="22nd March"
+            assigneeName="Rohit M"
+          />
+          <button className="">+ Add Task</button>
+        </div>
+        <div className="w-1/2 p-4 border border-gray-500 m-4 rounded-lg">
+          <h1 className="p-3 text-center">Done</h1>
+          <TaskCard
+            title="Design the mockup"
+            completedAtDate="10th April"
+            assigneeName="Rohit M"
+          />
+          <TaskCard
+            title="Get approval from principal"
+            completedAtDate="20th April"
+            assigneeName="Ajay S"
+          />
+        </div>
       </div>
     </div>
-  )
+  );
 }
 
 // function App() {
@@ -71,4 +89,4 @@ function App() {
 //   // )
 // }
 
-export default App
+export default App;

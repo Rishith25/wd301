@@ -2,7 +2,7 @@
 import React from "react";
 import "./TaskCard.css";
 
-interface TaskCardIf {
+interface TaskCard {
   title: string;
   dueDate?: string;
   completedAtDate?: string;
@@ -14,7 +14,7 @@ let TaskCard = ({
   dueDate,
   completedAtDate,
   assigneeName,
-}: TaskCardIf) => {
+}: TaskCard) => {
   let date;
   if (dueDate) {
     date = `Due Date: ${dueDate}`;

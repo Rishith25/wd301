@@ -21,7 +21,7 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
   //   inputRef = React.createRef<HTMLInputElement>();
   titleChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     console.log(`${event.target.value}`);
-      this.setState({ title: event.target.value });
+    this.setState({ title: event.target.value });
   };
   descriptionChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     console.log(`${event.target.value}`);
@@ -38,7 +38,7 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
       description: this.state.description,
       dueDate: this.state.dueDate,
     };
-    if(newTask.title.trim() !== '' || newTask.dueDate.trim() !== ''){
+    if (newTask.title.trim() !== "" || newTask.dueDate.trim() !== "") {
       this.props.addTask(newTask);
       this.setState({ title: "", description: "", dueDate: "" });
     }

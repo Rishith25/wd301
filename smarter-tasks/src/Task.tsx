@@ -19,6 +19,11 @@ const Task = (props: TaskItem) => {
   //   deleteTask
 
   // });
+  // const deleteTaskFunction: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+  //   console.log("Delete Button is Clicked")
+  //   props.deleteTask
+  //   // console.log("Task in Task.tsx",props.deleteTask)
+  // }
   return (
     <li>
       <div className="TaskItem shadow-md border border-slate-100">
@@ -29,7 +34,7 @@ const Task = (props: TaskItem) => {
         </p>
         <div className="relative z-0 w-full mb-6 group">
           <button
-            className="text-white rounded-lg text-sm px-5 py-2.5 bg-red-600 dark:hover:bg-red-700 inline-block"
+            className="deleteTaskButton text-white rounded-lg text-sm px-5 py-2.5 bg-red-600 dark:hover:bg-red-700 inline-block"
             type="button"
             id="deleteTaskButton"
             onClick={props.deleteTask}

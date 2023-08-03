@@ -23,8 +23,8 @@ const TaskApp = () => {
 
   const deleteTask = (task: TaskItem) => {  
     console.log("Deleted Successfully",task);
-    const updateTasks = taskAppState.tasks.filter((task) => {
-      return task.id !== task.id;
+    const updateTasks = taskAppState.tasks.filter((item) => {
+      return item.id !== task.id;
     });
     setTaskAppState({
       tasks: updateTasks,

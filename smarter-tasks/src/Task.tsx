@@ -5,12 +5,13 @@
 import "./TaskCard.css";
 import { TaskItem } from "./types";
 
-// interface TaskProp{
-//   tasks: TaskItem[];
-//   deleteTask: (id: number) => void;
-// }
+interface TaskProp {
+  tasks: TaskItem;
+  deleteTask: (task: TaskItem) => void;
+}
 
-const Task = (props: TaskItem) => {
+const Task = (props: TaskProp) => {
+  const { tasks, deleteTask } = props;
   // const [formState, setFormState] = React.useState<TaskProp>({
   //   title: "",
   //   description: "",
@@ -37,7 +38,7 @@ const Task = (props: TaskItem) => {
             className="deleteTaskButton text-white rounded-lg text-sm px-5 py-2.5 bg-red-600 dark:hover:bg-red-700 inline-block"
             type="button"
             id="deleteTaskButton"
-            onClick={props.deleteTask}
+            onClick={() => deleteTask(tasks)}
           >
             Delete
           </button>

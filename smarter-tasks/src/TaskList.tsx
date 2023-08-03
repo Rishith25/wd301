@@ -12,13 +12,13 @@ interface Props {
 
 const TaskList = (props: Props) => {
   // console.log("TaskList",props.tasks)
-  const list = props.tasks.map((task, idx) => (
+  const list = props.tasks.map((task) => (
     <Task
-      key={idx}
+      key={task.id}
       title={task.title}
       description={task.description}
       dueDate={task.dueDate}
-      deleteTask={() => props.deleteTask(idx)}
+      deleteTask={() => props.deleteTask(task.id)}
     />
   ));
   // console.log(list)

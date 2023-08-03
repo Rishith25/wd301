@@ -4,12 +4,12 @@ import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 
-// interface TaskAppProp {}
+interface TaskAppProp {}
 interface TaskAppState {
   tasks: TaskItem[];
 }
 
-const TaskApp = () => {
+const TaskApp = (props: TaskAppProp) => {
   const [taskAppState, setTaskAppState] = useLocalStorage<TaskAppState>(
     "tasks",
     {
@@ -21,10 +21,13 @@ const TaskApp = () => {
     setTaskAppState({ tasks: [...taskAppState.tasks, task] });
   };
 
-  const deleteTask = async (id: number) => {
+  const deleteTask = async (id: number) => {  
     console.log("Deleted Successfully");
+    const updateTasks = taskAppState.tasks.filter((task, index) => {
+      return task.id !== id;
+    });
     setTaskAppState({
-      tasks: [...taskAppState.tasks.filter((_task, index) => index !== id)],
+      tasks: updateTasks,
     });
   };
 

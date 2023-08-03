@@ -1,20 +1,63 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import "./App.css";
-// import Task from "./Task";
-// import TaskList from "./TaskList";
-// import TaskForm from "./TaskForm";
-import TaskApp from "./TaskApp";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import TaskListPage from "./pages/TaskListPage";
+import TaskDetailsPage from "./pages/TaskDetailsPage";
+import Signin from "./pages/Signin";
+import ProtectedRoute from "./ProtectedRoute";
+import Layout from "./Layout";
+import NotFound from "./pages/NotFound";
 
-function App() {
-  return (
-    <div className="App">
-      <TaskApp />
-    </div>
-  );
-}
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navigate to="/signin" replace />,
+  },
+  {
+    path: "/signin",
+    element: <Signin />,
+  },
+  {
+    path: "notfound",
+    element: <NotFound />,
+  },
+  {
+    element: (
+      <ProtectedRoute>
+        <Layout />
+      </ProtectedRoute>
+    ),
+    children: [
+      {
+        path: "home",
+        element: <HomePage />,
+      },
+      {
+        path: "tasks",
+        element: <TaskListPage />,
+      },
+      {
+        path: "tasks/:id",
+        element: <TaskDetailsPage />,
+      },
+      {
+        path: "*",
+        element: <Navigate to="/notfound" replace />,
+      },
+      {
+        path: "tasks/*",
+        element: <Navigate to="/notfound" replace />,
+      }
+    ],
+  },
+]);
+
+const App = () => {
+  return <RouterProvider router={router} />;
+};
 
 // function App() {
 //   return (

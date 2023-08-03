@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { TaskItem } from '../types';
-import { parse } from 'url';
 
 interface TaskDetailsPageParams extends Record<string, string> {
   id: string;
@@ -22,7 +21,7 @@ const TaskDetailsPage: React.FC = () => {
     }
   );
   
-  const task = taskAppState.tasks.find((task) => task.id === id);
+  const task = taskAppState.tasks.find((task: { id: string | number; }) => task.id == id);
   return (
     <div className="bg-white shadow-md rounded-md p-4 m-8">
       <div className="flex justify-between items-center mb-4">

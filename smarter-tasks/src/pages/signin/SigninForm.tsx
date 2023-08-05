@@ -5,8 +5,8 @@ import { API_ENDPOINT } from '../../config/constants';
 import { useNavigate } from 'react-router-dom';
 
 const SigninForm: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
   // Then we will define the handle submit function

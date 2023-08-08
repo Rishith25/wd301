@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.dark {
+  @apply bg-slate-800 text-zinc-50;
+}
+
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

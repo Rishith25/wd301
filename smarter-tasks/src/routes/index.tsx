@@ -7,7 +7,7 @@ import Signup from "../pages/signup";
 import Projects from "../pages/projects";
 import Members from "../pages/members";
 import Logout from "../pages/logout";
-import NotFound from "../pages/NotFound";
+import NotFound from "../pages/Notfound";
 
 const router = createBrowserRouter([
   {

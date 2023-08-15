@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // src/App.tsx
 
 import { useContext } from "react";
 import { RouterProvider } from "react-router-dom";
 import router from "./routes";
 import { ThemeContext } from "./context/theme";
-
+import { CommentsProvider } from "./context/comment/context";
 import { ProjectsProvider } from "./context/projects/context";
 import { MembersProvider } from "./context/members/context";
 
@@ -19,7 +20,9 @@ const App = () => {
       {/* {theme} */}
       <ProjectsProvider>
         <MembersProvider>
-          <RouterProvider router={router} />
+          <CommentsProvider>
+            <RouterProvider router={router} />
+          </CommentsProvider>
         </MembersProvider>
       </ProjectsProvider>
     </div>

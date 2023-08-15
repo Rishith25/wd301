@@ -1,0 +1,45 @@
+export type User = {
+  id: number;
+  name: string;
+  email: string
+}
+
+export type Comment = {
+  id: number;
+  description: string;
+  createdAt: string;
+  owner: number;
+  taskID: number;
+  user: User
+};
+
+export type CommentsState = {
+    comments: Comment[];
+    isLoading: boolean;
+    isError: boolean;
+    errorMessage: string;
+  }
+
+export type CommentsPayload = Omit<Comment, "id" | "createdAt" | "user" | "taskID">;
+
+// Actions that are available
+export enum CommentAvailableAction {
+  // Add actions for fetching tasks from server
+  FETCH_COMMENTS_REQUEST = "FETCH_COMMENTS_REQUEST",
+  FETCH_COMMENTS_SUCCESS = "FETCH_COMMENTS_SUCCESS",
+  FETCH_COMMENTS_FAILURE = "FETCH_COMMENTS_FAILURE",
+  CREATE_COMMENT_REQUEST = "CREATE_COMMENT_REQUEST",
+  CREATE_COMMENT_SUCCESS = "CREATE_COMMENT_SUCCESS",
+  CREATE_COMMENT_FAILURE = "CREATE_COMMENT_FAILURE",
+}
+
+export type CommentActions =
+  | { type: CommentAvailableAction.FETCH_COMMENTS_REQUEST }
+  | { type: CommentAvailableAction.FETCH_COMMENTS_SUCCESS; payload: Comment[] }
+  | { type: CommentAvailableAction.FETCH_COMMENTS_FAILURE; payload: string }
+  | { type: CommentAvailableAction.CREATE_COMMENT_REQUEST } 
+  | { type: CommentAvailableAction.CREATE_COMMENT_SUCCESS; payload: Comment } 
+  | { type: CommentAvailableAction.CREATE_COMMENT_FAILURE; payload: string } 
+  
+// A type to hold dispatch actions in a context.
+export type CommentsDispatch = React.Dispatch<CommentActions>;

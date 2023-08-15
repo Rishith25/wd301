@@ -12,7 +12,7 @@ import { addComment, getComments } from "../../context/comment/actions";
 import { CommentsPayload } from "../../context/comment/types";
 import CommentList from "./CommentsList";
 
-const NewComment = () => {
+export default function NewComment() {
   // let [isOpen, setIsOpen] = useState(true);
 
   let { projectID, taskID } = useParams();
@@ -37,10 +37,6 @@ const NewComment = () => {
       console.error("Operation failed:", error);
     }
   };
-  function closeModal() {
-    // setIsOpen(false);
-    navigate("../../");
-  }
   return (
     <>
       <div className="mt-2">
@@ -48,10 +44,10 @@ const NewComment = () => {
           <input
             type="text"
             required
-            placeholder="Enter title"
+            placeholder="Enter comment"
             autoFocus
-            id="commentBox  "
-            // Register the title field
+            id="commentBox"
+            // Register the description field
             {...register("description", { required: true })}
             className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
           />
@@ -63,16 +59,9 @@ const NewComment = () => {
           >
             Add Comment
           </button>
-          <button
-            onClick={closeModal}
-            className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-          >
-            Cancel
-          </button>
         </form>
         < CommentList />
       </div>
     </>
   );
-};
-export default NewComment;
+}

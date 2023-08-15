@@ -8,34 +8,31 @@ import {
   useCommentsDispatch,
   useCommentsState,
 } from "../../context/comment/context";
-import { addComment, refreshComments } from "../../context/comment/actions";
+import { addComment, getComments } from "../../context/comment/actions";
 import { CommentsPayload } from "../../context/comment/types";
 import CommentList from "./CommentsList";
+
 const NewComment = () => {
   // let [isOpen, setIsOpen] = useState(true);
 
   let { projectID, taskID } = useParams();
+  console.log("taskID", taskID);
   let navigate = useNavigate();
-
+  const commentDispatch = useCommentsDispatch();
   // Use react-hook-form to create form submission handler and state.
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<CommentsPayload>();
+  } = useForm<CommentsPayload>({});
   //   const commentState = useCommentsState();
-  const commentDispatch = useCommentsDispatch();
 
   const onSubmit: SubmitHandler<CommentsPayload> = async (data) => {
-    console.log(data)
+    console.log("Comment=", data);
+    const { description } = data;
     try {
       // Invoke the actual API and create a task.
-      addComment(
-        commentDispatch,
-        projectID ?? "",
-        taskID ?? "",
-        data
-      );
+      addComment(commentDispatch, projectID ?? "", taskID ?? "", description);
     } catch (error) {
       console.error("Operation failed:", error);
     }
@@ -73,6 +70,7 @@ const NewComment = () => {
             Cancel
           </button>
         </form>
+        < CommentList />
       </div>
     </>
   );

@@ -11,11 +11,7 @@ import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
 import { useProjectsState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
 import { useMembersState } from "../../context/members/context";
-import { CommentsDispatch } from "../../context/comment/types";
-import { useCommentsDispatch, useCommentsState } from "../../context/comment/context";
-import CommentsList from "./CommentsList";
 import NewComment from "./NewComment";
-import { refreshComments } from "../../context/comment/actions";
 
 type TaskFormUpdatePayload = TaskDetailsPayload & {
   selectedPerson: string;
@@ -33,13 +29,14 @@ const formatDateForPicker = (isoDate: string) => {
 };
 
 const TaskDetails = () => {
-  const memberState = useMembersState();
+  
   let [isOpen, setIsOpen] = useState(true);
-  const commentDispatch = useCommentsDispatch();
+
   let { projectID, taskID } = useParams();
   let navigate = useNavigate();
 
   // Extract project and task details.
+  const memberState = useMembersState();
   const projectState = useProjectsState();
   const taskListState = useTasksState();
   const taskDispatch = useTasksDispatch();
@@ -47,10 +44,6 @@ const TaskDetails = () => {
   const selectedProject = projectState?.projects.filter(
     (project) => `${project.id}` === projectID
   )[0];
-
-  useEffect(() => {
-    refreshComments(commentDispatch, `${projectID}`, `${taskID}`);
-  }, [taskID, projectID, commentDispatch]);
 
   const selectedTask = taskListState.projectData.tasks[taskID ?? ""];
 
@@ -210,9 +203,8 @@ const TaskDetails = () => {
                         Cancel
                       </button>
                     </form>
+                    <NewComment />
                   </div>
-                  <NewComment />
-                  <CommentsList />
                 </Dialog.Panel>
               </Transition.Child>
             </div>

@@ -17,10 +17,6 @@ export const useProjectsState = () => useContext(ProjectsStateContext);
 
 const ProjectsStateContext = createContext<ProjectsState | undefined>(undefined);
 
-// export const ProjectsProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-  
-//   const [state, dispatch] = useReducer(reducer, initialState);
-
 // Next, I'll define our ProjectsProvider component, and make this 
 // ProjectsStateContext available using context Provider.
 
@@ -34,12 +30,6 @@ const ProjectsStateContext = createContext<ProjectsState | undefined>(undefined)
 
 // Then, I'll pass the `state` object as value of this ProjectsStateContext
 
-//   return (
-//     <ProjectsStateContext.Provider value={state}>
-//       {children}
-//     </ProjectsStateContext.Provider>
-//   );
-// };
 type ProjectsDispatch = React.Dispatch<ProjectsActions>;
 
 // Using createContext function, we will create a context 

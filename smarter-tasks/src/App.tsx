@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-// src/App.tsx
-
 import { useContext } from "react";
 import { RouterProvider } from "react-router-dom";
 import router from "./routes";
@@ -8,6 +6,7 @@ import { ThemeContext } from "./context/theme";
 import { CommentsProvider } from "./context/comment/context";
 import { ProjectsProvider } from "./context/projects/context";
 import { MembersProvider } from "./context/members/context";
+import "./i18n";
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
@@ -29,46 +28,3 @@ const App = () => {
   );
 };
 export default App;
-// return <RouterProvider router={router} />;
-// return (
-//   <>
-//     <ReactPlayground />
-//     <RouterProvider router={router} />
-//   </>
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <TaskList />
-//     </div>
-//   );
-// }
-
-// function App() {
-//   const [count, setCount] = useState(0)
-
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vitejs.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.tsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
-// }

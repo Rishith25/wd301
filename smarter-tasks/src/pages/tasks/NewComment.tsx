@@ -1,18 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prefer-const */
-import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
-import {
-  useCommentsDispatch,
-  useCommentsState,
-} from "../../context/comment/context";
-import { addComment, getComments } from "../../context/comment/actions";
+import { useCommentsDispatch } from "../../context/comment/context";
+import { addComment } from "../../context/comment/actions";
 import { CommentsPayload } from "../../context/comment/types";
 import CommentList from "./CommentsList";
+import { useTranslation } from "react-i18next";
 
 export default function NewComment() {
+  const { t } = useTranslation();
   // let [isOpen, setIsOpen] = useState(true);
 
   let { projectID, taskID } = useParams();
@@ -57,10 +54,10 @@ export default function NewComment() {
             id="addCommentBtn"
             className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 mr-2 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
           >
-            Add Comment
+            Add {t("Comments")}
           </button>
         </form>
-        < CommentList />
+        <CommentList />
       </div>
     </>
   );

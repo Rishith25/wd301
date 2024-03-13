@@ -1,20 +1,55 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { TaskDetails } from "../../context/task/types";
 import "./TaskCard.css";
 import { Link } from "react-router-dom";
-import React, { forwardRef, useContext } from "react";
+import React, { forwardRef } from "react";
 import { useParams } from "react-router-dom";
 import { useTasksDispatch } from "../../context/task/context";
 import { deleteTask } from "../../context/task/actions";
 import { Draggable } from "react-beautiful-dnd";
+import { useTranslation } from "react-i18next";
+
+const formatDateForPicker = (
+  isoDate: string,
+  t: (key: string) => string,
+  i18n: any
+) => {
+  const dateObj = new Date(isoDate);
+
+  let localeObject;
+  switch (i18n.language) {
+    case "es":
+      localeObject = "fr-ES";
+      break;
+    case "gr":
+      localeObject = "el-GR";
+      break;
+    default:
+      localeObject = "en-US";
+  }
+
+  const dateFormatter = new Intl.DateTimeFormat(localeObject, {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
+  const formattedDate = dateFormatter.format(dateObj);
+  return formattedDate;
+};
 
 const Task = forwardRef<
   HTMLDivElement,
   React.PropsWithChildren<{ task: TaskDetails }>
 >((props, ref) => {
+  const { t, i18n } = useTranslation();
+
   const taskDispatch = useTasksDispatch();
   const { projectID } = useParams();
   const { task } = props;
+
   return (
     <div ref={ref} {...props} className="m-2 flex">
       <Link
@@ -25,13 +60,13 @@ const Task = forwardRef<
           <div>
             <h2 className="text-base font-bold my-1">{task.title}</h2>
             <p className="text-sm text-slate-500">
-              {new Date(task.dueDate).toDateString()}
+              {formatDateForPicker(task.dueDate, t, i18n)}
             </p>
             <p className="text-sm text-slate-500">
-              Description: {task.description}
+              {t("Description")}: {task.description}
             </p>
             <p className="text-sm text-slate-500">
-              Assignee: {task.assignedUserName ?? "-"}
+              {t("Assignee")}: {task.assignedUserName ?? "-"}
             </p>
           </div>
           <button

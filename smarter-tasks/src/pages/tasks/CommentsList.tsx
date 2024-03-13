@@ -1,22 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from "react";
-import { getComments } from "../../context/comment/actions";
 import {
   // useCommentsDispatch,
   useCommentsState,
 } from "../../context/comment/context";
 // import NewComment from "./NewComment";
 
-import {
-  useMembersState,
-} from "../../context/members/context";
+import { useMembersState } from "../../context/members/context";
+import { useTranslation } from "react-i18next";
 
 const CommentList = () => {
+  const { t } = useTranslation();
   const commentState = useCommentsState();
   const memberState = useMembersState();
 
   const { comments, isLoading, isError, errorMessage } = commentState;
-  console.log("Comments List", comments)
+  console.log("Comments List", comments);
   const getusername = (userid: number) => {
     const username = memberState?.members?.filter(
       (member) => member.id === userid
@@ -32,7 +30,6 @@ const CommentList = () => {
     return <span>{errorMessage}</span>;
   }
 
-
   const formatDate = (isoDate: string) => {
     const dateObj = new Date(isoDate);
     const day = String(dateObj.getDate()).padStart(2, "0");
@@ -44,7 +41,7 @@ const CommentList = () => {
   return (
     <>
       <h1 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-black">
-        comments:
+        {t("Comments")}:
       </h1>
       {comments.map((comment) => (
         <div key={comment.createdAt} className="comment flex justify-between">

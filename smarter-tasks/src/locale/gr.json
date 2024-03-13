@@ -1,0 +1,32 @@
+{
+  "translation": {
+    "Assignee": "Zessionar",
+    "Cancel": "Abbrechen",
+    "Comments": "Kommentare",
+    "Create": "Erstellen",
+    "Delete": "Löschen",
+    "Description": "Beschreibung",
+    "Details": "Details",
+    "Done": "Erledigt",
+    "In progress": "In Bearbeitung",
+    "Members": "Mitglieder",
+    "Member": "Mitglied",
+    "New": "Neu",
+    "Pending": "Ausstehend",
+    "Profile": "Profil",
+    "Projects": "Projekte",
+    "Project": "Projekt",
+    "Signin": "Anmelden",
+    "Signup": "Registrieren",
+    "Submit": "Einreichen",
+    "Task": "Aufgabe",
+    "Title": "Titel",
+    "Update": "Aktualisieren",
+    "Name": "Name",
+    "TaskDetails": "Aufgabendetails",
+    "Loading...": "Laden...",
+    "Username": "Benutzername",
+    "Password": "Passwort",
+    "Page Not Found": "Seite nicht gefunden"
+  }
+}

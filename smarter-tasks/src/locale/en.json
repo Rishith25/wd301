@@ -1,0 +1,32 @@
+{
+  "translation": {
+    "Assignee": "Assignee",
+    "Cancel": "Cancel",
+    "Comments": "Comments",
+    "Create": "Create",
+    "Delete": "Delete",
+    "Description": "Description",
+    "Details": "Details",
+    "Done": "Done",
+    "In progress": "In Progress",
+    "Members": "Members",
+    "Member": "Member",
+    "New": "New",
+    "Pending": "Pending",
+    "Profile": "Profile",
+    "Projects": "Projects",
+    "Project": "Project",
+    "Signin": "Sign In",
+    "Signup": "Sign Up",
+    "Submit": "Submit",
+    "Task": "Task",
+    "Title": "Title",
+    "Update": "Update",
+    "Name": "Name",
+    "TaskDetails": "Task Details",
+    "Loading...": "Loading...",
+    "Username": "Username",
+    "Password": "Password",
+    "PageNotFound": "Page Not Found"
+  }
+}

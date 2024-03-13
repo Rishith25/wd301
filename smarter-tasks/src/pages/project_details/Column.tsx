@@ -3,6 +3,7 @@ import React, { forwardRef } from "react";
 import { Droppable } from "react-beautiful-dnd";
 import { ColumnData, TaskDetails } from "../../context/task/types";
 import Task from "./Task";
+import { useTranslation } from "react-i18next";
 
 const Container = (props: React.PropsWithChildren) => {
   return (
@@ -17,14 +18,16 @@ const Title = (props: React.PropsWithChildren) => {
   return <h3 className="p-2 font-semibold">{props.children}</h3>;
 };
 
-const TaskList = forwardRef<HTMLDivElement | null,  React.PropsWithChildren>((props: React.PropsWithChildren, ref) => {
-  return (
-    <div ref={ref} className="grow min-h-100 dropArea" {...props}>
-      {" "}
-      {props.children}
-    </div>
-  );
-});
+const TaskList = forwardRef<HTMLDivElement | null, React.PropsWithChildren>(
+  (props: React.PropsWithChildren, ref) => {
+    return (
+      <div ref={ref} className="grow min-h-100 dropArea" {...props}>
+        {" "}
+        {props.children}
+      </div>
+    );
+  }
+);
 
 interface Props {
   column: ColumnData;
@@ -32,6 +35,7 @@ interface Props {
 }
 
 const Column: React.FC<Props> = (props) => {
+  const { t } = useTranslation();
   // console.log(props)
   // console.log(props.tasks.map((task, idx) => (
   //   console.log("Task",task,"Id",idx)
@@ -39,7 +43,7 @@ const Column: React.FC<Props> = (props) => {
   return (
     <>
       <Container>
-        <Title>{props.column.title}</Title>
+        <Title>{t(`${props.column.title}`)}</Title>
         <Droppable droppableId={props.column.id}>
           {(provided) => (
             <TaskList ref={provided.innerRef} {...provided.droppableProps}>

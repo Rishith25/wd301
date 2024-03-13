@@ -36,10 +36,6 @@ interface Props {
 
 const Column: React.FC<Props> = (props) => {
   const { t } = useTranslation();
-  // console.log(props)
-  // console.log(props.tasks.map((task, idx) => (
-  //   console.log("Task",task,"Id",idx)
-  // )))
   return (
     <>
       <Container>

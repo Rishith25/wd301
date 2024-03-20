@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -7,8 +8,8 @@ import { Link } from "react-router-dom";
 export default function ProjectListItems() {
   let state: any = useProjectsState();
   const { projects, isLoading, isError, errorMessage } = state;
-  console.log(projects);
-
+  console.log(projects); //Console Log Statement for debugging
+  debugger;
   if (projects.length === 0 && isLoading) {
     return <span>Loading...</span>;
   }

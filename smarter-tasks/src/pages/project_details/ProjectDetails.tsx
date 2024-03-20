@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint-disable prefer-const */
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";

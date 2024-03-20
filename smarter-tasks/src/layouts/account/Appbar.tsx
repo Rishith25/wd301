@@ -30,6 +30,8 @@ const Appbar = () => {
   const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
     setCurrentLanguage(language);
+
+    // throw new Error("An error occurred while changing the language");
   };
 
   const toggleTheme = () => {

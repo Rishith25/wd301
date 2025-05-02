@@ -6,8 +6,6 @@
   text-align: center;
 }
 
-
-
 .dark {
   @apply bg-slate-800 text-zinc-50;
 }

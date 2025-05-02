@@ -21,11 +21,11 @@ export type Columns = {
 };
 
 export type TaskListState = {
-    projectData: ProjectData;
-    isLoading: boolean;
-    isError: boolean;
-    errorMessage: string;
-  }
+  projectData: ProjectData;
+  isLoading: boolean;
+  isError: boolean;
+  errorMessage: string;
+};
 
 export type TaskDetailsPayload = Omit<TaskDetails, "id" | "assignee" | "state">;
 
@@ -34,10 +34,10 @@ export type Tasks = {
 };
 
 export type ProjectData = {
-    tasks: Tasks;
-    columns: Columns;
-    columnOrder: AvailableColumns[];
-  };
+  tasks: Tasks;
+  columns: Columns;
+  columnOrder: AvailableColumns[];
+};
 
 // Actions that are available
 export enum TaskListAvailableAction {
@@ -57,7 +57,7 @@ export enum TaskListAvailableAction {
   UPDATE_TASK_REQUEST = "UPDATE_TASK_REQUEST",
   UPDATE_TASK_SUCCESS = "UPDATE_TASK_SUCCESS",
   UPDATE_TASK_FAILURE = "UPDATE_TASK_FAILURE",
-  
+
   REORDER_TASKS = "REORDER_TASKS",
 }
 

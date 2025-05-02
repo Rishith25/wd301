@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useContext } from "react";
 import { RouterProvider } from "react-router-dom";
 import router from "./routes";

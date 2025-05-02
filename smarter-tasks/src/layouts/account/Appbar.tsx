@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { SetStateAction, useState, useContext, Fragment } from "react";
+import { useState, useContext, Fragment } from "react";
 import { Disclosure, Menu, Transition, Switch } from "@headlessui/react";
 import { UserCircleIcon } from "@heroicons/react/24/outline";
 import Logo from "../../assets/images/logo.png";

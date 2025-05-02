@@ -1,5 +1,3 @@
-/* eslint-disable no-debugger */
-/* eslint-disable prefer-const */
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
@@ -15,7 +13,7 @@ const ProjectDetails = () => {
   const tasksState = useTasksState();
   const taskDispatch = useTasksDispatch();
   const projectState = useProjectsState();
-  let { projectID } = useParams();
+  const { projectID } = useParams();
   useEffect(() => {
     if (projectID) refreshTasks(taskDispatch, projectID);
   }, [projectID, taskDispatch]);

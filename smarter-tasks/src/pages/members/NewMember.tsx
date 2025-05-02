@@ -1,4 +1,3 @@
-// src/pages/projects/NewProject.tsx
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";

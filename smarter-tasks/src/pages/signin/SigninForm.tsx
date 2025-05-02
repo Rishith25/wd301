@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from "react";
 // First we will import the API_ENDPOINT constant from the `config` folder
 import { API_ENDPOINT } from "../../config/constants";

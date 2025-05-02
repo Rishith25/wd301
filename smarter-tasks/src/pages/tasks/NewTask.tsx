@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable prefer-const */
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -12,17 +10,13 @@ import { useTranslation } from "react-i18next";
 
 const NewTask = () => {
   const { t } = useTranslation();
-  let [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(true);
 
-  let { projectID } = useParams();
-  let navigate = useNavigate();
+  const { projectID } = useParams();
+  const navigate = useNavigate();
 
   // Use react-hook-form to create form submission handler and state.
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<TaskDetailsPayload>();
+  const { register, handleSubmit } = useForm<TaskDetailsPayload>();
   const projectState = useProjectsState();
   const taskDispatch = useTasksDispatch();
 

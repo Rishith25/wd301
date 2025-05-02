@@ -1,8 +1,5 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable prefer-const */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Dialog, Transition, Listbox } from "@headlessui/react";
-import React, { Fragment, useState, useEffect } from "react";
+import { Fragment, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useTasksDispatch, useTasksState } from "../../context/task/context";
@@ -32,10 +29,10 @@ const formatDateForPicker = (isoDate: string) => {
 const TaskDetails = () => {
   const { t } = useTranslation();
 
-  let [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(true);
 
-  let { projectID, taskID } = useParams();
-  let navigate = useNavigate();
+  const { projectID, taskID } = useParams();
+  const navigate = useNavigate();
 
   // Extract project and task details.
   const memberState = useMembersState();
@@ -52,11 +49,7 @@ const TaskDetails = () => {
   const [selectedPerson, setSelectedPerson] = useState(
     selectedTask.assignedUserName ?? ""
   );
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<TaskFormUpdatePayload>({
+  const { register, handleSubmit } = useForm<TaskFormUpdatePayload>({
     defaultValues: {
       title: selectedTask.title,
       description: selectedTask.description,

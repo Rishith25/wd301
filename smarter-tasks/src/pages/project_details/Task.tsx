@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { TaskDetails } from "../../context/task/types";
 import "./TaskCard.css";
 import { Link } from "react-router-dom";

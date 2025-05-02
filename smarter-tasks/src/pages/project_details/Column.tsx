@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { forwardRef } from "react";
 import { Droppable } from "react-beautiful-dnd";
 import { ColumnData, TaskDetails } from "../../context/task/types";

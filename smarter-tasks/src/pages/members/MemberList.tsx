@@ -1,19 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import { fetchMembers } from "../../context/members/actions";
 
 import { useMembersDispatch } from "../../context/members/context";
 
-import MemberListItems from './MemberListItems';
+import MemberListItems from "./MemberListItems";
 const MemberList: React.FC = () => {
-
   const dispatchMembers = useMembersDispatch();
-  
+
   useEffect(() => {
-    fetchMembers(dispatchMembers)
-  }, [])
+    fetchMembers(dispatchMembers);
+  }, []);
   return (
     <div className="grid gap-4 grid-cols-4 mt-5">
       <MemberListItems />
@@ -21,5 +20,3 @@ const MemberList: React.FC = () => {
   );
 };
 export default MemberList;
-
-

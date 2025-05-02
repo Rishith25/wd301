@@ -1,7 +1,6 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-// First, I'll import the useProjectsState custom hook to access projects state.
 import {
   useMembersState,
   useMembersDispatch,

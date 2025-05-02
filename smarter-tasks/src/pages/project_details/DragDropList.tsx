@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
-import { AvailableColumns, ProjectData } from "../../context/task/types"; 
+import { AvailableColumns, ProjectData } from "../../context/task/types";
 import Column from "./Column";
 import { DragDropContext, OnDragEndResponder } from "react-beautiful-dnd";
 import { useTasksDispatch } from "../../context/task/context";
@@ -11,30 +10,28 @@ const Container = (props: React.PropsWithChildren) => {
   return <div className="flex">{props.children}</div>;
 };
 
-const DragDropList = (props: {
-  data: ProjectData;
-}) => {
-  console.log(props.data)
+const DragDropList = (props: { data: ProjectData }) => {
+  console.log(props.data);
   const taskDispatch = useTasksDispatch();
-  console.log("After taskDispatch",props.data)
-const { projectID } = useParams();
+  console.log("After taskDispatch", props.data);
+  const { projectID } = useParams();
   const onDragEnd: OnDragEndResponder = (result) => {
     const { destination, source, draggableId } = result;
     if (!destination) {
-      console.log("first if",destination)
+      console.log("first if", destination);
       return;
     }
     if (
       destination.droppableId === source.droppableId &&
       destination.index === source.index
     ) {
-      console.log("2nd if",destination)
+      console.log("2nd if", destination);
       return;
     }
     const startKey = source.droppableId as AvailableColumns;
     const finishKey = destination.droppableId as AvailableColumns;
 
-    console.log("Start Key",startKey,"Destinations Key",finishKey)
+    console.log("Start Key", startKey, "Destinations Key", finishKey);
     const start = props.data.columns[startKey];
     const finish = props.data.columns[finishKey];
 
@@ -76,7 +73,7 @@ const { projectID } = useParams();
       taskIDs: finishTaskIDs,
     };
 
-    // Create new state with newStart and newFinish 
+    // Create new state with newStart and newFinish
     const newState = {
       ...props.data,
       columns: {
@@ -95,7 +92,9 @@ const { projectID } = useParams();
       <Container>
         {props.data.columnOrder.map((colID) => {
           const column = props.data.columns[colID];
-          const tasks = column.taskIDs.map((taskID) => props.data.tasks[taskID]);
+          const tasks = column.taskIDs.map(
+            (taskID) => props.data.tasks[taskID]
+          );
           return <Column key={column.id} column={column} tasks={tasks} />;
         })}
       </Container>

@@ -1,8 +1,8 @@
 export type User = {
   id: number;
   name: string;
-  email: string
-}
+  email: string;
+};
 
 export type Comment = {
   id: number;
@@ -10,15 +10,15 @@ export type Comment = {
   createdAt: string;
   owner: number;
   taskID: number;
-  user: User
+  user: User;
 };
 
 export type CommentsState = {
-    comments: CommentsPayload[];
-    isLoading: boolean;
-    isError: boolean;
-    errorMessage: string;
-  }
+  comments: CommentsPayload[];
+  isLoading: boolean;
+  isError: boolean;
+  errorMessage: string;
+};
 
 export type CommentsPayload = Comment;
 
@@ -35,11 +35,14 @@ export enum CommentAvailableAction {
 
 export type CommentActions =
   | { type: CommentAvailableAction.FETCH_COMMENTS_REQUEST }
-  | { type: CommentAvailableAction.FETCH_COMMENTS_SUCCESS; payload: CommentsPayload[] }
+  | {
+      type: CommentAvailableAction.FETCH_COMMENTS_SUCCESS;
+      payload: CommentsPayload[];
+    }
   | { type: CommentAvailableAction.FETCH_COMMENTS_FAILURE; payload: string }
-  | { type: CommentAvailableAction.CREATE_COMMENT_REQUEST } 
-  | { type: CommentAvailableAction.CREATE_COMMENT_SUCCESS } 
-  | { type: CommentAvailableAction.CREATE_COMMENT_FAILURE; payload: string } 
-  
+  | { type: CommentAvailableAction.CREATE_COMMENT_REQUEST }
+  | { type: CommentAvailableAction.CREATE_COMMENT_SUCCESS }
+  | { type: CommentAvailableAction.CREATE_COMMENT_FAILURE; payload: string };
+
 // A type to hold dispatch actions in a context.
 export type CommentsDispatch = React.Dispatch<CommentActions>;

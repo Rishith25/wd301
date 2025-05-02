@@ -10,7 +10,6 @@ const MembersStateContext = createContext<MembersState | undefined>(undefined);
 
 type MembersDispatch = React.Dispatch<MembersActions>;
 
-
 export const useMembersDispatch = () => useContext(MembersDispatchContext);
 
 const MembersDispatchContext = createContext<MembersDispatch | undefined>(

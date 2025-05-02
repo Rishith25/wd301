@@ -42,7 +42,7 @@ const CommentList = () => {
 
     if (!use24HourFormat) {
       // Convert to 12-hour format
-      period = hours >= 12 ? "PM" : "AM";
+      period = Number(hours) >= 12 ? "PM" : "AM";
       hours = String(parseInt(hours, 10) % 12 || 12);
       minutes = String(minutes);
     }

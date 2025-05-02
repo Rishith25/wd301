@@ -73,11 +73,13 @@ export const reducer = (
       return { ...state, members: [...state.members, action.payload] };
     case "DELETE_MEMBER_SUCCESS":
       const deleteMemberId = action.payload;
-      const id  = state.members.findIndex(member => member.id === deleteMemberId)
-      if (id !== -1){
-        state.members.splice(id, 1)
+      const id = state.members.findIndex(
+        (member) => member.id === deleteMemberId
+      );
+      if (id !== -1) {
+        state.members.splice(id, 1);
       }
-      const updateMembers = state.members
+      const updateMembers = state.members;
       return { ...state, members: updateMembers };
     default:
       return state;

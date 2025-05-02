@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { Component, ErrorInfo, ReactNode } from "react";
+import { Component, ErrorInfo, ReactNode } from "react";
 
 interface ErrorBoundaryState {
   hasError: boolean;
@@ -12,7 +12,7 @@ class ErrorBoundary extends Component<{}, ErrorBoundaryState> {
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+  static getDerivedStateFromError(_error: Error): ErrorBoundaryState {
     return { hasError: true };
   }
 

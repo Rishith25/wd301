@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable prefer-const */
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useCommentsDispatch } from "../../context/comment/context";
 import { addComment } from "../../context/comment/actions";
@@ -12,16 +10,11 @@ export default function NewComment() {
   const { t } = useTranslation();
   // let [isOpen, setIsOpen] = useState(true);
 
-  let { projectID, taskID } = useParams();
+  const { projectID, taskID } = useParams();
   console.log("taskID", taskID);
-  let navigate = useNavigate();
   const commentDispatch = useCommentsDispatch();
   // Use react-hook-form to create form submission handler and state.
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<CommentsPayload>({});
+  const { register, handleSubmit } = useForm<CommentsPayload>({});
   //   const commentState = useCommentsState();
 
   const onSubmit: SubmitHandler<CommentsPayload> = async (data) => {

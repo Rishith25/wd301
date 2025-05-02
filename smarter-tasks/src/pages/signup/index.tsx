@@ -1,5 +1,4 @@
 import React from "react";
-// Just import the file
 import SignupForm from "./SignupForm";
 import { useTranslation } from "react-i18next";
 
